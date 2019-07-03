@@ -22,8 +22,6 @@ public class RoleInfo implements Serializable {
     @Column(name = "id")
     private Long roleId;
 
-    @Id
-    @GeneratedValue
     @Column(name = "role_name")
     private String roleName;
 
