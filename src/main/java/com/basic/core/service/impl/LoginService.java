@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.basic.core.jpa.bean.SysPermission;
 import com.basic.core.jpa.bean.UserInfo;
 import com.basic.core.jpa.dao.UserInfoJPA;
+import com.basic.core.jpa.vo.UserPermissionView;
 import com.basic.core.service.ILoginService;
 import com.basic.core.service.IPermissionService;
 import com.basic.core.shiro.Constants;
@@ -51,7 +52,7 @@ public class LoginService implements ILoginService {
         JSONObject userInfo = (JSONObject) session.getAttribute(Constants.SESSION_USER_INFO);
         String username = userInfo.getString("username");
         JSONObject info = new JSONObject();
-        List<SysPermission> userPermission = permissionService.getUserPermission(username);
+        List<UserPermissionView> userPermission = permissionService.getUserPermission(username);
         session.setAttribute(Constants.SESSION_USER_PERMISSION, userPermission);
         info.put("userPermission", userPermission);
 

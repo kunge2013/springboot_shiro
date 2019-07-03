@@ -33,6 +33,41 @@ public class UserInfo implements Serializable {
     @Column(name = "role_id")
     private Long roleId;
 
+    @Column(name = "delete_status")
+    private Long deleteStatus;
+
+    public Long getDeleteStatus() {
+        return deleteStatus;
+    }
+
+    public void setDeleteStatus(Long deleteStatus) {
+        this.deleteStatus = deleteStatus;
+    }
+
+    public Long getRoleId() {
+        return roleId;
+    }
+
+    public void setRoleId(Long roleId) {
+        this.roleId = roleId;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
