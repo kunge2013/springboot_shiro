@@ -1,10 +1,34 @@
-package com.basic.core.jpa.vo;
+package com.basic.core.jpa.bean;
 
+import javax.persistence.ColumnResult;
+import javax.persistence.ConstructorResult;
+import javax.persistence.SqlResultSetMapping;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-
+@SqlResultSetMapping(name ="getUserPermission", classes = {
+        @ConstructorResult(targetClass = UserPermissionView.class,columns = {
+                @ColumnResult(name = "userId", type = Long.class),
+                @ColumnResult(name = "nickname", type = String.class),
+                @ColumnResult(name = "roleId", type = Long.class),
+                @ColumnResult(name = "roleName", type = String.class),
+                @ColumnResult(name = "menuCode", type = String.class),
+                @ColumnResult(name = "permissionCode", type = String.class)
+        })
+})
 public class UserPermissionView implements Serializable {
+
+    public UserPermissionView(Long userId, String nickname, Long roleId, String roleName, String menuCode, String permissionCode) {
+        this.userId = userId;
+        this.nickname = nickname;
+        this.roleId = roleId;
+        this.roleName = roleName;
+        this.menuCode = menuCode;
+        this.permissionCode = permissionCode;
+    }
+
+    public UserPermissionView() {
+    }
 
     private Long userId;
 
