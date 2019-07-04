@@ -24,8 +24,14 @@ public class PermissionService implements IPermissionService {
     @Autowired
     private PermissionJPA permissionJPA;
 
+    @Autowired
+    private IJdbcQueryService jdbcQueryService;
+
     @Override
     public List<UserPermissionView> getUserPermission(String username) {
+        List<UserPermissionView> list1 = jdbcQueryService.queryForList("SELECT u.id as userId,u.nickname as nickname,u.role_id as roleId,r.role_name as roleName,p.menu_code as menuCode,p.permission_code as permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = 1 WHERE  u.delete_status = 1  ",
+                UserPermissionView.class, new Object[] {});
+
         List<UserPermissionView> list = jdbcTemplate.query("SELECT u.id as userId,u.nickname as nickname,u.role_id as roleId,r.role_name as roleName,p.menu_code as menuCode,p.permission_code as permissionCode FROM sys_user u LEFT JOIN sys_role r ON r.id = u.role_id LEFT JOIN sys_role_permission rp ON u.role_id = rp.role_id LEFT JOIN sys_permission p ON rp.permission_id = p.id AND rp.delete_status = 1 WHERE  u.delete_status = 1" +
                         "    AND u.username= '" + username +"'",
                 (rs, b) -> {

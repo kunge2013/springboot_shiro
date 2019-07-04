@@ -16,7 +16,7 @@ public class LoginController {
     /**
      * 登录
      */
-    @PostMapping("/auth/{userName}/{passWord}")
+    @RequestMapping(value = "/auth/{userName}/{passWord}",method = RequestMethod.POST)
     public Object authLogin(@PathVariable("userName") String userName,@PathVariable("passWord") String passWord) {
         return loginService.authLogin(userName,passWord);
     }
