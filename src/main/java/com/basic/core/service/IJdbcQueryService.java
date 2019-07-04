@@ -1,7 +1,9 @@
 package com.basic.core.service;
 
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.lang.Nullable;
+
+import java.util.List;
 
 public interface IJdbcQueryService {
-    public void queryForList(String sql, RowMapper rowMapper, Callback call);
+    <T> List<T> queryForList(String sql, Class<T> elementType, @Nullable Object[] args) ;
 }
