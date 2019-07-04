@@ -52,9 +52,9 @@ public class UserRealm extends AuthorizingRealm {
 		String password = new String((char[]) authcToken.getCredentials());
 		UserInfo user = null;
 		try {
-			user = loginService.getUser(loginName, password);
+			 user = loginService.getUser(loginName, password);
 		} catch (Exception e) {
-			e.printStackTrace();
+
 		}
 		if (user == null) {
 			//没找到帐号

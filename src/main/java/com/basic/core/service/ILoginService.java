@@ -1,6 +1,5 @@
 package com.basic.core.service;
 
-import com.alibaba.fastjson.JSONObject;
 import com.basic.core.jpa.bean.UserInfo;
 
 public interface ILoginService {
@@ -15,6 +14,6 @@ public interface ILoginService {
      UserInfo getUser(String username, String password) throws Exception;
 
 
-    JSONObject getInfo();
+     Object getInfo();
 
 }

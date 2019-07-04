@@ -47,15 +47,20 @@ public class LoginService implements ILoginService {
     }
 
     @Override
-    public JSONObject getInfo() {
+    public Object getInfo() {
         Session session = SecurityUtils.getSubject().getSession();
-        JSONObject userInfo = (JSONObject) session.getAttribute(Constants.SESSION_USER_INFO);
-        String username = userInfo.getString("username");
+        UserInfo userInfo = (UserInfo)session.getAttribute(Constants.SESSION_USER_INFO);
+        String username = userInfo.getUserName();
         JSONObject info = new JSONObject();
         List<UserPermissionView> userPermission = permissionService.getUserPermission(username);
+        /**
+         * 添加泉下信息到
+         */
+        {
+
+        }
         session.setAttribute(Constants.SESSION_USER_PERMISSION, userPermission);
         info.put("userPermission", userPermission);
-
-        return null;
+        return info;
     }
 }

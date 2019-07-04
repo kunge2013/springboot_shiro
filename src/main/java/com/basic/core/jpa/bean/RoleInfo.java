@@ -31,6 +31,17 @@ public class RoleInfo implements Serializable {
     @Column(name = "create_time")
     private Date createTime;
 
+    @Column(name = "delete_status")
+    private Integer deletStatus;
+
+    public Integer getDeletStatus() {
+        return deletStatus;
+    }
+
+    public void setDeletStatus(Integer deletStatus) {
+        this.deletStatus = deletStatus;
+    }
+
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
