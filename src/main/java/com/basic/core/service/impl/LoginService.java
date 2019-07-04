@@ -1,10 +1,9 @@
 package com.basic.core.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.basic.core.jpa.bean.SysPermission;
 import com.basic.core.jpa.bean.UserInfo;
 import com.basic.core.jpa.dao.UserInfoJPA;
-import com.basic.core.jpa.vo.UserPermissionView;
+import com.basic.core.jpa.bean.UserPermissionView;
 import com.basic.core.service.ILoginService;
 import com.basic.core.service.IPermissionService;
 import com.basic.core.shiro.Constants;

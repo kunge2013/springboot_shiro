@@ -1,7 +1,6 @@
 package com.basic.core.service;
 
-import com.basic.core.jpa.bean.SysPermission;
-import com.basic.core.jpa.vo.UserPermissionView;
+import com.basic.core.jpa.bean.UserPermissionView;
 
 import java.util.List;
 
